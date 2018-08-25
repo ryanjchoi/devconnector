@@ -2,17 +2,22 @@
 * @Author: Ryan Choi
 * @Date:   2018-08-22 22:14:00
 * @Last Modified by:   Ryan Choi
-* @Last Modified time: 2018-08-23 22:38:07
+* @Last Modified time: 2018-08-24 07:05:32
 */
 
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 const users = require('./routes/api/users');
 const profile = require('./routes/api/profile');
 const posts = require('./routes/api/posts');
 
 const app = express();
+
+// Body parser middleware
+app.use(bodyParser.urlencoded({extented: false}));
+app.use(bodyParser.json());
 
 // DB Config
 // const dbtest = require('./config/keys').mongoURI; ???
